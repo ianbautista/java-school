@@ -40,6 +40,7 @@ public class CustomErrorDetails extends DefaultErrorAttributes
         newErrorAttributes.put("timestamp", defaultErrorAttributes.get("timestamp"));
         newErrorAttributes.put("developermessage", "path: " + defaultErrorAttributes.get("path"));
 
+        //webRequest has a lot of stuff but I just need the error.
         newErrorAttributes.put("error", helperFunctions.getConstraintViolation(this.getError(webRequest)));
 
         return newErrorAttributes;
