@@ -74,4 +74,19 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler
 
         return new ResponseEntity<>(errorDetail, headers, status);
     }
+
+    @Override
+    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request)
+    {
+        ErrorDetail errorDetail = new ErrorDetail();
+
+        errorDetail.setTimestamp(new Date());
+        errorDetail.setStatus(status.value());
+        errorDetail.setTitle("Rest Internal Exception");
+        errorDetail.setDetails("Found an error with School: " + ex.getMessage());
+        errorDetail.setDevelopermessage(ex.getClass().getName());
+        errorDetail.setErrors(helperFunctions.getConstraintViolation(ex));
+
+        return new ResponseEntity<>(errorDetail, headers, status);
+    }
 }
