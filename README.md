@@ -738,12 +738,12 @@ Add Validations
       - [x] Not Null
       - [x] Minimum 2 characters
       - [x] Maximum 30 characters
-  - [ ] Instructor Model
-    - [ ] Name
-      - [ ] Not Null
-      - [ ] Minimum 2 characters
-      - [ ] Maximum 30 characters
-  - [ ] Each validation should report an appropriate exception message if violated
+  - [x] Instructor Model
+    - [x] Name
+      - [x] Not Null
+      - [x] Minimum 2 characters
+      - [x] Maximum 30 characters
+  - [x] Each validation should report an appropriate exception message if violated
 
 Get Data from External API
 
@@ -817,7 +817,7 @@ Custom Swagger Documentation
 - [x] Add custom Swagger Documentation for
   - [x] All endpoints in the Courses Controller
   - [x] All fields in the Courses model
-  - [ ] All the validations added above should be documented in Swagger
+  - [x] All the validations added above should be documented in Swagger
   - [x] Swagger API-Information should point to your information
         `http://localhost:2019/API-Information/v2/api-docs`
         `http://localhost:2019/API-Information/swagger-ui.html`
