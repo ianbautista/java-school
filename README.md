@@ -733,11 +733,11 @@ Add Validations
       - [x] Not Null
       - [x] Minimum 2 characters
       - [x] Maximum 50 characters
-  - [ ] Student Model
-    - [ ] Name
-      - [ ] Not Null
-      - [ ] Minimum 2 characters
-      - [ ] Maximum 30 characters
+  - [x] Student Model
+    - [x] Name
+      - [x] Not Null
+      - [x] Minimum 2 characters
+      - [x] Maximum 30 characters
   - [ ] Instructor Model
     - [ ] Name
       - [ ] Not Null
