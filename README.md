@@ -727,12 +727,12 @@ Add appropriate exception handling routines.
 
 Add Validations
 
-- [ ] Add the following validations to your code
-  - [ ] Course Model
-    - [ ] Coursename
-      - [ ] Not Null
-      - [ ] Minimum 2 characters
-      - [ ] Maximum 50 characters
+- [x] Add the following validations to your code
+  - [x] Course Model
+    - [x] Coursename
+      - [x] Not Null
+      - [x] Minimum 2 characters
+      - [x] Maximum 50 characters
   - [ ] Student Model
     - [ ] Name
       - [ ] Not Null
