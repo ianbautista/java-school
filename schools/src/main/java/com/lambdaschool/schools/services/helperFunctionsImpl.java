@@ -27,6 +27,7 @@ public class helperFunctionsImpl implements HelperFunctions
 
         if (cause != null)
         {
+            // loop through the cause
             ConstraintViolationException exceptions = (ConstraintViolationException) cause;
             for (ConstraintViolation cv : exceptions.getConstraintViolations() )
             {

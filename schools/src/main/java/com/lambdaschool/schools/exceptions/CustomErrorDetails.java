@@ -28,18 +28,19 @@ public class CustomErrorDetails extends DefaultErrorAttributes
         // status: 401
         // details:
         // timestamp:
-        // developermessage:
+        // developerMessage:
         // errors: list of validation errors
 
         // remapping the data to the new attributes
         // this assigns the default attributes to the new attributes
         //                      new         |       default
-        newErrorAttributes.put("title", defaultErrorAttributes.get("error"));
+        newErrorAttributes.put("title", "Resource Not Found");
         newErrorAttributes.put("status", defaultErrorAttributes.get("status"));
         newErrorAttributes.put("detail", defaultErrorAttributes.get("message"));
         newErrorAttributes.put("timestamp", defaultErrorAttributes.get("timestamp"));
-        newErrorAttributes.put("developermessage", "path: " + defaultErrorAttributes.get("path"));
+        newErrorAttributes.put("developerMessage", "com.lambdaschool.schools.exceptions.ResourceNotFoundException");
 
+        System.out.println(webRequest);
         //webRequest has a lot of stuff but I just need the error.
         newErrorAttributes.put("error", helperFunctions.getConstraintViolation(this.getError(webRequest)));
 
