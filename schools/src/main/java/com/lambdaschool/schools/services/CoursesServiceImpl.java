@@ -1,5 +1,6 @@
 package com.lambdaschool.schools.services;
 
+import com.lambdaschool.schools.exceptions.ResourceFoundException;
 import com.lambdaschool.schools.exceptions.ResourceNotFoundException;
 import com.lambdaschool.schools.models.Course;
 import com.lambdaschool.schools.models.Instructor;
@@ -12,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityExistsException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -169,7 +169,7 @@ public class CoursesServiceImpl
                 courseid);
         } else
         {
-            throw new EntityExistsException("Student and Course Combination Already Exists");
+            throw new ResourceFoundException("Student and Course Combination Already Exists");
         }
     }
 

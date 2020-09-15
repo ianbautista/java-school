@@ -7,10 +7,13 @@ import com.lambdaschool.schools.services.HelperFunctions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.Date;
@@ -34,7 +37,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler
 
         errorDetail.setTimestamp(new Date());
         errorDetail.setStatus(HttpStatus.NOT_FOUND.value());
-        errorDetail.setTitle("Rest Internal Exception");
+        errorDetail.setTitle("Resource Not Found");
         errorDetail.setDetails(rnfe.getMessage());
         errorDetail.setDevelopermessage(rnfe.getClass().getName());
         errorDetail.setErrors(helperFunctions.getConstraintViolation(rnfe));
@@ -48,12 +51,27 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler
         ErrorDetail errorDetail = new ErrorDetail();
 
         errorDetail.setTimestamp(new Date());
-        errorDetail.setStatus(HttpStatus.NOT_FOUND.value());
+        errorDetail.setStatus(HttpStatus.BAD_REQUEST.value());
         errorDetail.setTitle("Resource Found");
         errorDetail.setDetails(rfe.getMessage());
         errorDetail.setDevelopermessage(rfe.getClass().getName());
         errorDetail.setErrors(helperFunctions.getConstraintViolation(rfe));
 
         return new ResponseEntity<>(errorDetail, null, HttpStatus.BAD_REQUEST);
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request)
+    {
+        ErrorDetail errorDetail = new ErrorDetail();
+
+        errorDetail.setTimestamp(new Date());
+        errorDetail.setStatus(status.value());
+        errorDetail.setTitle("Rest Internal Exception");
+        errorDetail.setDetails("Found an error with School: " + ex.getMessage());
+        errorDetail.setDevelopermessage(ex.getClass().getName());
+        errorDetail.setErrors(helperFunctions.getConstraintViolation(ex));
+
+        return new ResponseEntity<>(errorDetail, headers, status);
     }
 }
