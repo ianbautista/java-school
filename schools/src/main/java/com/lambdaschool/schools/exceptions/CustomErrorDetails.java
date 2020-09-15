@@ -40,7 +40,7 @@ public class CustomErrorDetails extends DefaultErrorAttributes
         newErrorAttributes.put("timestamp", defaultErrorAttributes.get("timestamp"));
         newErrorAttributes.put("developerMessage", "com.lambdaschool.schools.exceptions.ResourceNotFoundException");
 
-        System.out.println(webRequest);
+//        System.out.println(webRequest);
         //webRequest has a lot of stuff but I just need the error.
         newErrorAttributes.put("error", helperFunctions.getConstraintViolation(this.getError(webRequest)));
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service(value = "helperFunctions")
-public class helperFunctionsImpl implements HelperFunctions
+public class HelperFunctionsImpl implements HelperFunctions
 {
     @Override
     public List<ValidationError> getConstraintViolation(Throwable cause)

@@ -5,7 +5,7 @@ public class ValidationError
 {
     private String code; // this is the thing the caused the problem (i.e. password. username. etc.)
 
-    private String message; // this explains wht the problem is.
+    private String message; // this explains what the problem is.
 
 
     public ValidationError()
