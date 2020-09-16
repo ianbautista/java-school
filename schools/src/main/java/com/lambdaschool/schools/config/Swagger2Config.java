@@ -3,7 +3,6 @@ package com.lambdaschool.schools.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -56,6 +55,4 @@ public class Swagger2Config
                 .version("1.0.0")
                 .build();
     }
-
-
 }

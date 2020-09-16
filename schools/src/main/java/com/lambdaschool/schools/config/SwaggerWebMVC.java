@@ -1,13 +1,12 @@
 package com.lambdaschool.schools.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-@EnableWebMvc
-public class SwaggerWebMVC implements WebMvcConfigurer {
+public class SwaggerWebMVC implements WebMvcConfigurer
+{
     /**
      * Adds the Swagger web pages to Spring.
      * This still gives the following warning
